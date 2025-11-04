@@ -49,7 +49,7 @@ export default function NewLoan({ open, setOpen, loansObject, setLoansObject, mo
                                         </DialogTitle>
                                         <div className="mt-2">
                                             <p className="text-sm text-gray-400">
-                                                Create a new loan to get instant cash! Terms and conditions apply (you get charged 5% interest per coin flip and you must pay back the loan within 5 flips or we take all your money).
+                                                Create a new loan to get instant cash! Terms and conditions apply (you get charged 5% interest per coin flip and you must pay back the loan within 10 flips or we take all your money).
                                             </p>
                                             <input type="number" placeholder="Loan Amount..." className="mt-4 w-full border border-gray-600 bg-gray-700 rounded-md px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" value={loanAmount} onChange={(e) => setLoanAmount(Number(e.target.value))} />
                                         </div>

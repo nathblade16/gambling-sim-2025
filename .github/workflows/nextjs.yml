@@ -40,12 +40,16 @@ jobs:
             echo "runner=yarn" >> $GITHUB_OUTPUT
             exit 0
           elif [ -f "${{ github.workspace }}/package.json" ]; then
+            npm -g install pnpm
             echo "manager=pnpm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
+            echo "command=i" >> $GITHUB_OUTPUT
             echo "runner=npx --no-install" >> $GITHUB_OUTPUT
             exit 0
           else
-            echo "Unable to determine package manager"
+            echo "manager=pnpm" >> $GITHUB_OUTPUT
+            echo "command=i" >> $GITHUB_OUTPUT
+            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+            echo "Unable to determine package manager, using pnpm"
             exit 1
           fi
       - name: Setup Node

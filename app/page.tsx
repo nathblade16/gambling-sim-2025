@@ -81,7 +81,12 @@ export default function Home() {
       if (bet === r) {
         // compute payout using multiplier and golden state
         const goldenFactor = goldenActive ? 2 : 1;
-        const payout = parseFloat((payoutMultiplier * goldenFactor * betAmount).toFixed(2));
+        let payout = 0;
+        if (!isAuto) {
+          payout = parseFloat((payoutMultiplier * goldenFactor * betAmount).toFixed(2));
+        } else {
+          payout = parseFloat((payoutMultiplier * goldenFactor * 10).toFixed(2));
+        }
         setMoney((prev) => parseFloat((prev + payout).toFixed(2)));
         if (!isAuto) {
           setOpen(true);
@@ -95,7 +100,11 @@ export default function Home() {
           goldenTimeoutRef.current = window.setTimeout(() => setGoldenActive(false), 30_000);
         }
       } else {
-        setMoney(prev => parseFloat((prev - betAmount).toFixed(2)));
+        if (!isAuto) {
+          setMoney(prev => parseFloat((prev - betAmount).toFixed(2)));
+        } else {
+          setMoney(prev => parseFloat((prev - 10).toFixed(2)));
+        }
       }
       // compute next flip index (use currentFlip captured here)
       const nextFlip = currentFlip + 1;

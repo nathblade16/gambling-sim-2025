@@ -96,10 +96,10 @@ export default function Coin({ size = 120, onResult, initial = "heads", isFlippi
         className={`coin-3d__inner ${showingFlipping ? "is-flipping" : ""} ${!showingFlipping && showingResult ? "is-reveal" : ""}`}
       >
         <div className="coin-3d__face coin-3d__face--heads">
-          <Image src="/images/heads.svg" alt="Heads" layout="fill" objectFit="contain" />
+          <Image src="./images/heads.svg" alt="Heads" layout="fill" objectFit="contain" />
         </div>
         <div className="coin-3d__face coin-3d__face--tails">
-          <Image src="/images/tails.svg" alt="Tails" layout="fill" objectFit="contain" />
+          <Image src="./images/tails.svg" alt="Tails" layout="fill" objectFit="contain" />
         </div>
         <div className="coin-3d__edge" />
       </div>
